@@ -7,7 +7,7 @@ I am covering theory during session, but as most of it can be learned by self-st
 You will find free online 6-part learning path here: [https://docs.microsoft.com/en-us/learn/certifications/exams/az-900](https://docs.microsoft.com/en-us/learn/certifications/exams/az-900)
 
 # Practical part
-You have access to subscription we prepared beforehand (see [adminGuide.md](./adminGUide.md) if you are interested what steps we have done).
+You have access to subscription we prepared beforehand (see [adminGuide.md](./adminGuide.md) if you are interested what steps we have done).
 
 Notes for our labs today are available in [userGuide.md](./userGuide.md).
 
