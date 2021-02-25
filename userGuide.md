@@ -1,9 +1,18 @@
 # User guide
 Please follow instructor and refer to steps and scripts here.
 
+## Introduction to portal
+
+1. Login to https://portal.azure.com
+2. See settings to set color, language
+3. Make sure you see our subscription for today and target (filter) only this one by clicking on directory/filter icon (top left next to ring bell). If you do not see subscription make sure you are in correct tenant.
+4. Use + sign to create new Resource Group for you in naming convention namesurname-rg, eg. tomaskubica-rg
+5. Use search bar to find objects or documentation
+6. Check Dasboard vs. Home
+
 ## IaaS
 
-1. Use portal at https://portal.azure.com to create VM with VNET, public IP and no monitoring. In wizard enable backup and use custom storage account for boot diagnostics (to allow for serial console access).
+1. Create Ubuntu or Windows VM with VNET, public IP and no monitoring. In wizard enable backup and use custom storage account for boot diagnostics (to allow for serial console access).
 2. Access VM via SSH/RDP
 3. Together with instructor investigate objects - VNET, NSG, disk, discuss snapshots and images etc.
 4. Configure NSG to allow SSH/RDP access only from your source IP (to get it you can use [http://api.ipify.org/](http://api.ipify.org/))
