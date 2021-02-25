@@ -24,3 +24,33 @@ Get-AzPublicIpAddress | ForEach-Object -Parallel  {
     Write-Host $output
 } -ThrottleLimit 100
 ```
+
+## Delete all Backup Vaults
+```powershell
+foreach ($vault in Get-AzRecoveryServicesVault) {
+    # Recover any soft-deleted backups
+    $Containers = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -VaultId $vault.Id
+    foreach ($Container in $Containers) {
+        $BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureVM -VaultId $vault.Id -DeleteState ToBeDeleted
+        if ($BackupItem) {
+            Undo-AzRecoveryServicesBackupItemDeletion -Item $BackupItem -VaultId $vault.Id
+        } 
+    }
+
+    # Disable soft-delete
+    Set-AzRecoveryServicesVaultProperty -VaultId $vault.Id -SoftDeleteFeatureState Disable
+
+    # Delete all VMs and backups
+    $Containers = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -VaultId $vault.Id
+    foreach ($Container in $Containers) {
+        $BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureVM -VaultId $vault.Id
+        if ($BackupItem) {
+            Disable-AzRecoveryServicesBackupProtection -Item $BackupItem -VaultId $vault.Id -RemoveRecoveryPoints -Force
+        }
+    }
+
+    # Delete vault
+    Remove-AzRecoveryServicesVault -Vault $vault
+}
+
+```
