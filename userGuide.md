@@ -98,13 +98,16 @@ Remove-AzResourceGroup -Name $resourceGroup -Force -AsJob
 ## Monitoring and security
 
 1. Your subscription has been configured with Policy to autoenroll to Azure Monitor and Security Center
-2. Go to Inventory and Change tracking and enable
+2. Go to Inventory and Change tracking and observe
 3. Access machine via Serial console
 4. Create Backup
 5. Configure replication to different region
 6. Go to Insights and see Health, Performance and Map
 7. Go to Logs and search Syslog (Linux) or Event (Windows) table
-8. Go to Security Center and explore recommendations, vulnerabilities, missing updates etc.
+8. Open Azure Monitor and look at categories including Application, SQL or Network
+9. Go to Service Health to understand how incidents and maintenance are communicated
+10. Go to Security Center and explore recommendations, vulnerabilities, missing updates etc.
+11. Go to Azure Sentinel and see Data sources, Azure Activity in Workbook section. Go to Hunting and check for various queries such as AzureActivity or AWS,
 
 ## Azure SQL and other databases
 

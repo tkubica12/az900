@@ -13,6 +13,7 @@
 4. Go to Azure Monitor -> Virtual Machines -> Other onboarding options -> Enable using Policy to autoenroll VMs to VM Insights
 5. Create Automation Account
 6. In Automation Account configure Inventory, Change Tracking and Update management and then click on Manage machines and select Enable on all available and future machines
+7. Use Azure Policies to onboard vulnerability assessment agents
 
 ## Check participants finished blocking of SSH/RDP traffic
 ```powershell
